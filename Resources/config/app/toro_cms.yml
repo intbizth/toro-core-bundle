@@ -1,0 +1,11 @@
+toro_cms:
+    driver: doctrine/orm
+    resources:
+        page:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\Page
+                interface: Toro\Bundle\CoreBundle\Model\PageInterface
+        post:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\Post
+                interface: Toro\Bundle\CoreBundle\Model\PostInterface

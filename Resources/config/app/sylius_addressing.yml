@@ -1,0 +1,5 @@
+sylius_addressing:
+    resources:
+        address:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\Address

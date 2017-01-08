@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+    <class name="Toro\Bundle\CoreBundle\Model\Customer">
+        <constraint name="Toro\Bundle\CoreBundle\Validator\Constraints\RegisteredUser">
+            <option name="message">toro.customer.email.registered</option>
+            <option name="groups">sylius_user_registration</option>
+        </constraint>
+    </class>
+</constraint-mapping>

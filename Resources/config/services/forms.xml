@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="sylius.form.extension.type.customer" class="Toro\Bundle\CoreBundle\Form\Extension\CustomerTypeExtension">
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\CustomerBundle\Form\Type\CustomerType" />
+        </service>
+
+        <service id="sylius.form.type.web_user" class="Toro\Bundle\CoreBundle\Form\Type\User\WebUserType">
+            <argument>%sylius.model.web_user.class%</argument>
+            <argument type="collection"><argument>sylius</argument></argument>
+            <tag name="form.type" />
+        </service>
+    </services>
+
+</container>

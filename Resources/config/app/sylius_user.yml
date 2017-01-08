@@ -1,0 +1,7 @@
+sylius_user:
+    resources:
+        web:
+            user:
+                classes:
+                    model: Toro\Bundle\CoreBundle\Model\WebUser
+                    form: Toro\Bundle\CoreBundle\Form\Type\User\WebUserType

@@ -1,0 +1,8 @@
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\Taxon
+            translation:
+                classes:
+                    model: Toro\Bundle\CoreBundle\Model\TaxonTranslation

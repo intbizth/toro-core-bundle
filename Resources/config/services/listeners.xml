@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="toro.listener.canonicalizer" class="Toro\Bundle\CoreBundle\EventListener\CanonicalizerListener">
+            <argument type="service" id="sylius.canonicalizer" />
+            <tag name="doctrine.event_listener" event="prePersist" />
+            <tag name="doctrine.event_listener" event="preUpdate" />
+        </service>
+        <service id="toro.listener.default_username" class="Toro\Bundle\CoreBundle\EventListener\DefaultUsernameORMListener">
+            <tag name="doctrine.event_listener" event="onFlush" />
+        </service>
+        <service id="toro.listener.user_auto_login" class="Toro\Bundle\CoreBundle\EventListener\UserAutoLoginListener">
+            <argument type="service" id="sylius.security.user_login" />
+            <tag name="kernel.event_listener" event="sylius.customer.post_register" method="login" />
+        </service>
+        <service id="toro.listener.user_registration" class="Toro\Bundle\CoreBundle\EventListener\UserRegistrationListener">
+            <argument type="service" id="sylius.manager.web_user" />
+            <argument type="service" id="sylius.web_user.token_generator.email_verification" />
+            <argument type="service" id="event_dispatcher" />
+            <tag name="kernel.event_listener" event="sylius.customer.post_register" method="sendVerificationEmail" />
+        </service>
+        <service id="toro.listener.password_updater" class="Toro\Bundle\CoreBundle\EventListener\PasswordUpdaterListener">
+            <argument type="service" id="sylius.security.password_updater" />
+            <tag name="kernel.event_listener" event="sylius.user.pre_password_reset" method="genericEventUpdater" />
+            <tag name="kernel.event_listener" event="sylius.user.pre_password_change" method="genericEventUpdater" />
+            <tag name="kernel.event_listener" event="sylius.customer.pre_update" method="customerUpdateEvent" />
+            <tag name="doctrine.event_listener" event="prePersist" />
+            <tag name="doctrine.event_listener" event="preUpdate" />
+        </service>
+    </services>
+</container>

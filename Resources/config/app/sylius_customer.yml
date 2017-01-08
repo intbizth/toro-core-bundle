@@ -1,0 +1,8 @@
+sylius_customer:
+    resources:
+        customer:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\Customer
+        customer_group:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\CustomerGroup
