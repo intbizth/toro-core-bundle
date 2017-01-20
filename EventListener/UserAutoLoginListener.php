@@ -16,11 +16,17 @@ final class UserAutoLoginListener
     private $userLogin;
 
     /**
+     * @var string
+     */
+    private $firewall;
+
+    /**
      * @param UserLoginInterface $userLogin
      */
-    public function __construct(UserLoginInterface $userLogin)
+    public function __construct(UserLoginInterface $userLogin, $firewall = 'web')
     {
         $this->userLogin = $userLogin;
+        $this->firewall = $firewall;
     }
 
     /**
@@ -42,7 +48,7 @@ final class UserAutoLoginListener
         }
 
         try {
-            $this->userLogin->login($user);
+            $this->userLogin->login($user, $this->firewall);
         } catch (AccountStatusException $exception) {
             // We simply do not authenticate users which do not pass the user
             // checker (not enabled, expired, etc.).
