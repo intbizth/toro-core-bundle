@@ -5,3 +5,4 @@ sylius_user:
                 classes:
                     model: Toro\Bundle\CoreBundle\Model\WebUser
                     form: Toro\Bundle\CoreBundle\Form\Type\User\WebUserType
+                    repository: Sylius\Bundle\CoreBundle\Doctrine\ORM\UserRepository
