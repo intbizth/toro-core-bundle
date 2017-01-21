@@ -6,6 +6,7 @@
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <mapped-superclass name="Toro\Bundle\CoreBundle\Model\Taxon" table="toro_taxon">
+        <field name="options" type="json_array"/>
     </mapped-superclass>
 
 </doctrine-mapping>
