@@ -1,0 +1,7 @@
+toro_media:
+    image_collection:
+        post_image_collection:
+            create_default: true
+            filters:
+                desktop_cover: 'Desktop Cover'
+                mobile_cover: 'Mobile Cover'

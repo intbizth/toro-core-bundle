@@ -1,0 +1,17 @@
+sylius_resource:
+    resources:
+        toro.post_image_collection:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\PostImageCollection
+                interface: Toro\Bundle\CoreBundle\Model\PostImageCollectionInterface
+                controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+                factory: Sylius\Component\Resource\Factory\TranslatableFactory
+                form: Toro\Bundle\CoreBundle\Form\Type\PostImageCollectionType
+                repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+            translation:
+                classes:
+                    model: Toro\Bundle\CoreBundle\Model\PostImageCollectionTranslation
+                    interface: Toro\Bundle\CoreBundle\Model\PostImageCollectionTranslationInterface
+                    controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+                    factory: Sylius\Component\Resource\Factory\Factory
+                    form: Toro\Bundle\MediaBundle\Form\Type\ImageCollectionTranslationType

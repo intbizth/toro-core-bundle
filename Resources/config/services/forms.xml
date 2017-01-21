@@ -14,6 +14,24 @@
             <argument type="collection"><argument>sylius</argument></argument>
             <tag name="form.type" />
         </service>
+
+        <service id="toro.form.type.post_image_collection" class="Toro\Bundle\CoreBundle\Form\Type\PostImageCollectionType">
+            <argument>%toro.model.post_image_collection.class%</argument>
+            <argument type="collection"><argument>toro</argument></argument>
+            <tag name="form.type"/>
+        </service>
+
+        <service id="toro.form.type.post_image_collection_translation" class="Toro\Bundle\MediaBundle\Form\Type\ImageCollectionTranslationType">
+            <argument>%toro.model.post_image_collection_translation.class%</argument>
+            <argument type="collection"><argument>toro</argument></argument>
+            <tag name="form.type"/>
+        </service>
+
+        <service id="toro.form.extension.type.post_image_collection" class="Toro\Bundle\CoreBundle\Form\Extension\PostImageCollectionTypeExtension">
+            <argument type="service" id="toro.factory.post_image_collection"/>
+            <argument type="service" id="toro.form.image_collection_configure_resolver"/>
+            <tag name="form.type_extension" extended-type="Toro\Bundle\CmsBundle\Form\Type\PostType" />
+        </service>
     </services>
 
 </container>
