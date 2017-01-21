@@ -48,6 +48,7 @@ final class UserAutoLoginListener
         }
 
         try {
+            $user->enable();
             $this->userLogin->login($user, $this->firewall);
         } catch (AccountStatusException $exception) {
             // We simply do not authenticate users which do not pass the user
