@@ -3,6 +3,7 @@
 namespace Toro\Bundle\CoreBundle\Context;
 
 use Sylius\Component\Customer\Context\CustomerContextInterface;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Toro\Bundle\CoreBundle\Model\CustomerInterface;
@@ -46,5 +47,14 @@ final class CustomerContext implements CustomerContextInterface
         }
 
         return null;
+    }
+
+    public function __call($name, $arguments)
+    {
+        if (!$customer = $this->getCustomer()) {
+            return;
+        }
+
+        return PropertyAccess::createPropertyAccessor()->getValue($customer, $name);
     }
 }
