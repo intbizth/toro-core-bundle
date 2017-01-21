@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('driver')->defaultValue(SyliusResourceBundle::DRIVER_DOCTRINE_ORM)->end()
                 ->arrayNode('resources')->addDefaultsIfNotSet()->end()
-                ->scalarNode('post_taxon_root')->cannotBeEmpty()->end()
+                ->scalarNode('post_taxon_root')->defaultNull()->cannotBeEmpty()->end()
             ->end()
         ;
 
