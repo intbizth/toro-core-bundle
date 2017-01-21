@@ -18,5 +18,9 @@
         <many-to-one field="channel" target-entity="Sylius\Component\Channel\Model\ChannelInterface">
             <join-column nullable="false"/>
         </many-to-one>
+
+        <many-to-one field="taxon" target-entity="Sylius\Component\Taxonomy\Model\TaxonInterface">
+            <join-column nullable="true" on-delete="SET NULL"/>
+        </many-to-one>
     </mapped-superclass>
 </doctrine-mapping>

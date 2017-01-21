@@ -9,6 +9,11 @@
             <tag name="form.type_extension" extended-type="Sylius\Bundle\CustomerBundle\Form\Type\CustomerType" />
         </service>
 
+        <service id="sylius.form.extension.type.taxon" class="Toro\Bundle\CoreBundle\Form\Extension\PostTypeExtension">
+            <argument>%toro_post_taxon_root%</argument>
+            <tag name="form.type_extension" extended-type="Toro\Bundle\CmsBundle\Form\Type\PostType" />
+        </service>
+
         <service id="sylius.form.type.web_user" class="Toro\Bundle\CoreBundle\Form\Type\User\WebUserType">
             <argument>%sylius.model.web_user.class%</argument>
             <argument type="collection"><argument>sylius</argument></argument>

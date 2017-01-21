@@ -20,6 +20,8 @@ class ToroCoreExtension extends AbstractResourceExtension
 
         $this->registerResources(ToroCoreBundle::APPLICATION_NAME, $config['driver'], $config['resources'], $container);
 
+        $container->setParameter('toro_post_taxon_root', $config['post_taxon_root']);
+
         $loader->load('services.xml');
     }
 }
