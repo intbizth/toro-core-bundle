@@ -6,3 +6,9 @@ sylius_user:
                     model: Toro\Bundle\CoreBundle\Model\WebUser
                     form: Toro\Bundle\CoreBundle\Form\Type\User\WebUserType
                     repository: Toro\Bundle\CoreBundle\Doctrine\ORM\UserRepository
+        oauth:
+            user:
+                classes:
+                    model: Sylius\Component\User\Model\UserOAuth
+                    interface: Sylius\Component\User\Model\UserOAuthInterface
+                    controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
