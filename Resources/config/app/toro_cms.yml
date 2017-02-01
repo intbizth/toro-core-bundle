@@ -9,3 +9,6 @@ toro_cms:
             classes:
                 model: Toro\Bundle\CoreBundle\Model\Post
                 interface: Toro\Bundle\CoreBundle\Model\PostInterface
+            translation:
+                classes:
+                    model: Toro\Bundle\CoreBundle\Model\PostTranslation

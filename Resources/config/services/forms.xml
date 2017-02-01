@@ -37,6 +37,16 @@
             <argument type="service" id="toro.form.image_collection_configure_resolver"/>
             <tag name="form.type_extension" extended-type="Toro\Bundle\CmsBundle\Form\Type\PostType" />
         </service>
+
+        <service id="dng.form.post_translation_taggable" class="Toro\Bundle\CoreBundle\Form\Extension\PostTranslationTaggableTypeExtension">
+            <tag name="form.type_extension" extended-type="Toro\Bundle\CmsBundle\Form\Type\PostTranslationType"/>
+        </service>
+
+        <service id="dng.form.post_tag_choice" class="Toro\Bundle\CoreBundle\Form\Type\PostTagChoiceType">
+            <argument type="service" id="toro.repository.post_tag"/>
+            <argument type="service" id="toro.provider.post_tag"/>
+            <tag name="form.type"/>
+        </service>
     </services>
 
 </container>

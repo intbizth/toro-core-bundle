@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Toro\Bundle\CoreBundle\Model\PostTag" table="toro_cms_post_tag">
+        <many-to-many target-entity="Toro\Bundle\CmsBundle\Model\PostTranslationInterface" field="tagables" fetch="EXTRA_LAZY" mapped-by="tags">
+        </many-to-many>
+    </mapped-superclass>
+</doctrine-mapping>

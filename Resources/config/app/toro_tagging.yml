@@ -1,0 +1,9 @@
+toro_tagging:
+    resources:
+        post:
+            subject: "%toro.model.post_translation.class%"
+            tag:
+                classes:
+                    model: Toro\Bundle\CoreBundle\Model\PostTag
+                    form: Toro\Bundle\CoreBundle\Form\Type\PostTagType
+                    repository: Toro\Bundle\CoreBundle\Doctrine\ORM\PostTagRepository

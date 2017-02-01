@@ -49,4 +49,12 @@ class Post extends BasePost implements PostInterface
     {
         $this->taxon = $taxon;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTags()
+    {
+        return $this->getTranslation()->getTags();
+    }
 }
