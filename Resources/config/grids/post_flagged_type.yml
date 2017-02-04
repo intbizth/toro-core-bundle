@@ -1,0 +1,23 @@
+sylius_grid:
+    grids:
+        toro_admin_post_flagged_type:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%toro.model.post_flagged_type.class%"
+
+            fields:
+                code:
+                    type: string
+                    label: Code
+                name:
+                    type: string
+                    label: Name
+
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update

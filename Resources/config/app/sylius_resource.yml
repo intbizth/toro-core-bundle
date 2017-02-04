@@ -15,3 +15,19 @@ sylius_resource:
                     controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
                     factory: Sylius\Component\Resource\Factory\Factory
                     form: Toro\Bundle\MediaBundle\Form\Type\ImageCollectionTranslationType
+
+        toro.post_flagged:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\PostFlagged
+                interface: Toro\Bundle\CoreBundle\Model\PostFlaggedInterface
+                #controller: Toro\Bundle\CoreBundle\Controller\PostFlaggedController
+                repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+
+        toro.post_flagged_type:
+            classes:
+                model: Toro\Bundle\CoreBundle\Model\PostFlaggedType
+                interface: Toro\Bundle\CoreBundle\Model\PostFlaggedTypeInterface
+                controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+                factory: Sylius\Component\Resource\Factory\Factory
+                repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+                form: Toro\Bundle\CoreBundle\Form\Type\PostFlaggedTypeType

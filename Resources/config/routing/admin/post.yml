@@ -1,0 +1,23 @@
+toro_admin_cms_post_update_flags:
+    path: /posts/{id}/update-flags
+    methods: [GET, PATCH]
+    defaults:
+        _controller: toro.controller.post:updateAction
+        _sylius:
+            redirect: referer
+            template: "@ToroAdmin/Post/_form_update_flags.html.twig"
+            form:
+                type: Toro\Bundle\CoreBundle\Form\Type\PostFlaggedUpdateType
+
+toro_admin_post:
+    resource: |
+        alias: toro.post
+        section: admin
+        templates: ToroAdminBundle:Post/Crud
+        except: ['show']
+        redirect: update
+        grid: toro_admin_core_post
+        vars:
+          index:
+            icon: ti-book
+    type: sylius.resource

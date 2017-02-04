@@ -8,6 +8,7 @@
         <import resource="services/emails.xml"/>
         <import resource="services/forms.xml"/>
         <import resource="services/listeners.xml"/>
+        <import resource="services/processors.xml"/>
         <import resource="services/schemas.xml"/>
         <import resource="services/security.xml"/>
         <import resource="services/validators.xml"/>

@@ -9,6 +9,7 @@ toro_cms:
             classes:
                 model: Toro\Bundle\CoreBundle\Model\Post
                 interface: Toro\Bundle\CoreBundle\Model\PostInterface
+                repository: Toro\Bundle\CoreBundle\Doctrine\ORM\PostRepository
             translation:
                 classes:
                     model: Toro\Bundle\CoreBundle\Model\PostTranslation

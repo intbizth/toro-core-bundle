@@ -1,0 +1,16 @@
+toro_admin_post_tag:
+    resource: |
+        alias: toro.post_tag
+        section: admin
+        templates: ToroAdminBundle:Crud
+        except: ['show']
+        redirect: index
+        grid: toro_admin_post_tag
+        vars:
+          all:
+            subheader: Manage tag
+            templates:
+                form: "@ToroAdmin/PostTag/_form.html.twig"
+          index:
+            icon: ti-book
+    type: sylius.resource

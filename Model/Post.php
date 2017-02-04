@@ -2,6 +2,8 @@
 
 namespace Toro\Bundle\CoreBundle\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Toro\Bundle\CmsBundle\Model\BlameableTrait;
 use Toro\Bundle\CmsBundle\Model\ChannelableTrait;
@@ -19,9 +21,16 @@ class Post extends BasePost implements PostInterface
      */
     protected $taxon;
 
+    /**
+     * @var Collection|PostFlaggedInterface[]
+     */
+    protected $flaggeds;
+
     public function __construct()
     {
         parent::__construct();
+
+        $this->flaggeds = new ArrayCollection();
 
         $this->initializeImageCollection();
     }
@@ -56,5 +65,53 @@ class Post extends BasePost implements PostInterface
     public function getTags()
     {
         return $this->getTranslation()->getTags();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFlaggeds()
+    {
+        return $this->flaggeds;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFlaggedTypes()
+    {
+        return array_map(function (PostFlaggedInterface $flagged) {
+            return $flagged->getType();
+        }, $this->flaggeds->toArray());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addFlagged(PostFlaggedInterface $flagged)
+    {
+        if (!$this->hasFlagged($flagged)) {
+            $flagged->setPost($this);
+            $this->flaggeds->add($flagged);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeFlagged(PostFlaggedInterface $flagged)
+    {
+        if ($this->hasFlagged($flagged)) {
+            $flagged->setPost(null);
+            $this->flaggeds->removeElement($flagged);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasFlagged(PostFlaggedInterface $flagged)
+    {
+        return $this->flaggeds->contains($flagged);
     }
 }

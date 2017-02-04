@@ -1,0 +1,24 @@
+toro_admin_post_flagged_type:
+    resource: |
+        alias: toro.post_flagged_type
+        section: admin
+        templates: ToroAdminBundle:Crud
+        except: ['show', 'delete']
+        redirect: index
+        grid: toro_admin_post_flagged_type
+        vars:
+          all:
+            templates:
+                form: "@ToroAdmin/PostFlaggedType/_form.html.twig"
+          index:
+            icon: ti-book
+    type: sylius.resource
+
+toro_admin_partial_post_flagged_type_index:
+    path: /_partial/posts
+    methods: [GET, PATCH]
+    defaults:
+        _controller: toro.controller.post_flagged_type:indexAction
+        _sylius:
+            template: "@ToroAdmin/PostFlaggedType/_partial_index.html.twig"
+            repository: findAll

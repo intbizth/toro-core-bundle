@@ -22,5 +22,14 @@
         <many-to-one field="taxon" target-entity="Sylius\Component\Taxonomy\Model\TaxonInterface">
             <join-column nullable="true" on-delete="SET NULL"/>
         </many-to-one>
+
+        <one-to-many target-entity="Toro\Bundle\CoreBundle\Model\PostFlaggedInterface" mapped-by="post" field="flaggeds" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <order-by>
+                <order-by-field name="position" direction="ASC"/>
+            </order-by>
+        </one-to-many>
     </mapped-superclass>
 </doctrine-mapping>
