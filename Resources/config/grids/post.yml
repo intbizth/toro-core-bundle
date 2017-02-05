@@ -43,6 +43,11 @@ sylius_grid:
                     path: .
                     options:
                         template: "@ToroAdmin/Post/Field/flagged.html.twig"
+                type:
+                    type: twig
+                    label: "Type"
+                    options:
+                        template: "@ToroAdmin/Post/Field/type.html.twig"
                 published:
                     type: twig
                     label: Published
