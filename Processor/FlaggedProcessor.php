@@ -68,7 +68,7 @@ class FlaggedProcessor
                 $flaggeds = $this->flaggedRepository->findBy(['type' => $flaggedType]);
 
                 foreach ($flaggeds as $flagged) {
-                    $post->removeFlagged($flagged);
+                    $this->flaggedRepository->remove($flagged);
                 }
 
                 continue;
