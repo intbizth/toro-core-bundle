@@ -7,6 +7,11 @@ sylius_grid:
                     class: "%toro.model.post_flagged_type.class%"
 
             fields:
+                singleActive:
+                    type: twig
+                    label: Single Active
+                    options:
+                        template: "@ToroAdmin/Grid/Field/yesNo.html.twig"
                 code:
                     type: string
                     label: Code
