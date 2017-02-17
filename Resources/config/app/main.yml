@@ -7,7 +7,6 @@ imports:
     - { resource: "@ToroCoreBundle/Resources/config/app/sylius_locale.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/app/sylius_channel.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/app/toro_cms.yml" }
-    - { resource: "@ToroCoreBundle/Resources/config/app/toro_media.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/app/toro_tagging.yml" }
 
     - { resource: "@ToroCoreBundle/Resources/config/grids/post.yml" }
