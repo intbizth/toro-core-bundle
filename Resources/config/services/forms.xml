@@ -38,34 +38,34 @@
             <tag name="form.type_extension" extended-type="Toro\Bundle\CmsBundle\Form\Type\PostType" />
         </service>
 
-        <service id="dng.form.post_translation_taggable" class="Toro\Bundle\CoreBundle\Form\Extension\PostTranslationTaggableTypeExtension">
+        <service id="toro.form.post_translation_taggable" class="Toro\Bundle\CoreBundle\Form\Extension\PostTranslationTaggableTypeExtension">
             <tag name="form.type_extension" extended-type="Toro\Bundle\CmsBundle\Form\Type\PostTranslationType"/>
         </service>
 
-        <service id="dng.form.post_tag" class="Toro\Bundle\CoreBundle\Form\Type\PostTagType">
+        <service id="toro.form.post_tag" class="Toro\Bundle\CoreBundle\Form\Type\PostTagType">
             <argument>%toro.model.post_tag.class%</argument>
             <argument type="collection"><argument>toro</argument></argument>
             <tag name="form.type"/>
         </service>
 
-        <service id="dng.form.post_tag_choice" class="Toro\Bundle\CoreBundle\Form\Type\PostTagChoiceType">
+        <service id="toro.form.post_tag_choice" class="Toro\Bundle\CoreBundle\Form\Type\PostTagChoiceType">
             <argument type="service" id="toro.repository.post_tag"/>
             <argument type="service" id="toro.provider.post_tag"/>
             <tag name="form.type"/>
         </service>
 
-        <service id="dng.form.post_flagged_type_choice" class="Toro\Bundle\CoreBundle\Form\Type\PostFlaggedTypeChoiceType">
+        <service id="toro.form.post_flagged_type_choice" class="Toro\Bundle\CoreBundle\Form\Type\PostFlaggedTypeChoiceType">
             <argument type="service" id="toro.repository.post_flagged_type"/>
             <tag name="form.type"/>
         </service>
 
-        <service id="dng.form.post_flagged_type" class="Toro\Bundle\CoreBundle\Form\Type\PostFlaggedTypeType">
+        <service id="toro.form.post_flagged_type" class="Toro\Bundle\CoreBundle\Form\Type\PostFlaggedTypeType">
             <argument>%toro.model.post_flagged_type.class%</argument>
             <argument type="collection"><argument>toro</argument></argument>
             <tag name="form.type"/>
         </service>
 
-        <service id="dng.form.post_flagged_update" class="Toro\Bundle\CoreBundle\Form\Type\PostFlaggedUpdateType">
+        <service id="toro.form.post_flagged_update" class="Toro\Bundle\CoreBundle\Form\Type\PostFlaggedUpdateType">
             <argument>%toro.model.post.class%</argument>
             <argument type="collection"><argument>toro</argument></argument>
             <call method="setFlaggedProcessor">
