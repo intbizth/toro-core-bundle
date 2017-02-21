@@ -1,0 +1,20 @@
+{% set choices = form.flaggedTypes.vars.choices %}
+{% set icons = { yes: 'fa fa-circle', no: 'fa fa-circle-o' } %}
+{% set flaggedTypes = post.flaggedTypes %}
+
+{{ form_start(form, { method: 'PATCH', action: path('toro_admin_cms_post_update_flags', { id: post.id }) }) }}
+<div class="btn-group btn-group-sm" role="group">
+    {% for field in form.flaggedTypes %}
+        {% set flaggedType = choices[field.vars.name].data %}
+        {% set config = flaggedType.config %}
+        {% set id = field.vars.id ~ post.id %}
+        {% set checked = flaggedType in flaggedTypes %}
+        {% set iconYes = config.yes_icon|default(icons.yes) %}
+        {% set iconNo = config.no_icon|default(icons.no) %}
+            <label class="btn btn-default {{ printif('active', checked) }}" for="{{ id }}" title="{{ field.vars.label }}" data-toggle="xtooltip">
+                {{ form_widget(field, { id: id, checked: checked, attr: { style: 'position: absolute; visibility: hidden' } }) }}
+                <i class="{{ checked ? iconYes : iconNo }}"></i>
+            </label>
+    {% endfor %}
+</div>
+{{ form_end(form) }}

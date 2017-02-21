@@ -9,16 +9,16 @@ toro_admin_post_flagged_type:
         vars:
           all:
             templates:
-                form: "@ToroAdmin/PostFlaggedType/_form.html.twig"
+                form: "@ToroCore/PostFlaggedType/_form.html.twig"
           index:
             icon: ti-book
     type: sylius.resource
 
-toro_admin_partial_post_flagged_type_index:
-    path: /_partial/posts
-    methods: [GET, PATCH]
+toro_admin_partial_post_flagged_type_filter:
+    path: /_partial/posts/filter/flags
+    methods: [GET]
     defaults:
         _controller: toro.controller.post_flagged_type:indexAction
         _sylius:
-            template: "@ToroAdmin/PostFlaggedType/_partial_index.html.twig"
+            template: "@ToroCore/PostFlaggedType/_partial_filter.html.twig"
             repository: findAll

@@ -42,12 +42,12 @@ sylius_grid:
                     label: "Flaggeds"
                     path: .
                     options:
-                        template: "@ToroAdmin/Post/Field/flagged.html.twig"
+                        template: "@ToroCore/Post/Field/flagged.html.twig"
                 type:
                     type: twig
                     label: "Type"
                     options:
-                        template: "@ToroAdmin/Post/Field/type.html.twig"
+                        template: "@ToroCore/Post/Field/type.html.twig"
                 published:
                     type: twig
                     label: Published

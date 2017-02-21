@@ -1,0 +1,47 @@
+{#{% set var_nav_scale = 'sm' %}#}
+{% extends "@ToroAdmin/Crud/index.html.twig" %}
+
+{% block crud_index_content %}
+    <div class="fixed-fluid">
+        <div class="fixed-sm-200 fixed-md-250 pull-sm-left">
+            <div class="panel">
+                <div class="list-group bg-trans pad-ver">
+                    <p class="pad-hor text-bold">{{ "State" }}</p>
+
+                    {% if app.request.query.has('criteria') %}
+                        <a href="{{ path('toro_admin_post_index') }}" class="list-group-item text-sm">
+                            <i class="fa fa-close"></i> {{ "Reset Filter" }}
+                        </a>
+                    {% endif %}
+
+                    {% set published = app.request.get('criteria').published|default([]).value|default %}
+                    {% set highlight = printif('active', published is sameas('1')) %}
+                    {% set criteria = { criteria: { published: { type: 'equal', value: 1 } } } %}
+
+                    <a href="{{ path('toro_admin_post_index', criteria) }}" class="list-group-item {{ highlight }}">
+                        <i class="fa fa-circle text-success"></i> {{ "Published" }}
+                    </a>
+
+                    {% set highlight = printif('active', published is sameas('0')) %}
+                    {% set criteria = { criteria: { published: { type: 'equal', value: 0 } } } %}
+
+                    <a href="{{ path('toro_admin_post_index', criteria) }}" class="list-group-item {{ highlight }}">
+                        <i class="fa fa-circle text-gray-dark"></i> {{ "Not Published" }}
+                    </a>
+
+                </div>
+            </div>
+
+            {{ render(path('toro_admin_partial_post_flagged_type_filter', { criteria: app.request.get('criteria')|default([]) })) }}
+            {{ render(path('toro_admin_partial_post_taxon_filter', { criteria: app.request.get('criteria')|default([]) })) }}
+        </div>
+        <div class="fluid" id="main-post-index">
+            <div class="panel">
+                <div class="panel-body">
+                    {{ block('crud_index_content_toolbar') }}
+                    {{ sylius_grid_render(resources, '@ToroCore/Post/_grid.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

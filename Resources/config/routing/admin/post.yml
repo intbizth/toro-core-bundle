@@ -5,7 +5,7 @@ toro_admin_cms_post_update_flags:
         _controller: toro.controller.post:updateAction
         _sylius:
             redirect: referer
-            template: "@ToroAdmin/Post/_form_update_flags.html.twig"
+            template: "@ToroCore/Post/_form_update_flags.html.twig"
             form:
                 type: Toro\Bundle\CoreBundle\Form\Type\PostFlaggedUpdateType
 
@@ -13,7 +13,7 @@ toro_admin_post:
     resource: |
         alias: toro.post
         section: admin
-        templates: ToroAdminBundle:Post/Crud
+        templates: ToroCoreBundle:Post/Crud
         except: ['show']
         redirect: update
         grid: toro_admin_core_post
@@ -21,3 +21,15 @@ toro_admin_post:
           index:
             icon: ti-book
     type: sylius.resource
+
+toro_admin_partial_post_taxon_filter:
+    path: /_partial/posts/filter/taxon
+    methods: [GET]
+    defaults:
+        code: "%toro_post_taxon_root%"
+        _controller: sylius.controller.taxon:showAction
+        _sylius:
+            template: "@ToroCore/Post/_partial_taxon_filter.html.twig"
+            repository:
+                method: findOneByCode
+                arguments: [ "%toro_post_taxon_root%" ]

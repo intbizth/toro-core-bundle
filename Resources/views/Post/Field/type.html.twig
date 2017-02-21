@@ -1,0 +1,5 @@
+{% if 'youtube' == data|lower %}
+    <i class="fa fa-youtube-play" title="{{ data|humanize }}" data-toggle="tooltip"></i>
+{% else %}
+    <i class="fa fa-file-text-o" title="{{ data|humanize }}" data-toggle="tooltip"></i>
+{% endif %}

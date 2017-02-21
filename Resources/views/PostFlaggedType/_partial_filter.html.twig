@@ -1,0 +1,19 @@
+{% set flaggedTypeId = app.request.get('criteria').flaggedTypeId|default([]).value|default %}
+
+<div class="panel">
+    <div class="list-group bg-trans pad-ver">
+        <p class="pad-hor text-bold">{{ "Flaggeds" }}</p>
+        {% set icons = { yes: 'fa fa-circle', no: 'fa fa-circle-o' } %}
+
+        {% for ftype in resources %}
+            {% set iconYes = ftype.config.yes_icon|default(icons.yes) %}
+            {% set iconNo = ftype.config.no_icon|default(icons.no) %}
+            {% set criteria = { criteria: { flaggedTypeId: { type: 'equal', value: ftype.id } } } %}
+            {% set highlight = printif('active', ftype.id == flaggedTypeId) %}
+
+            <a href="{{ path('toro_admin_post_index', criteria) }}" class="list-group-item {{ highlight }}">
+                <i class="{{ ftype.id == flaggedTypeId ? iconYes : iconNo }}"></i> {{ ftype.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>

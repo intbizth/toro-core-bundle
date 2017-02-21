@@ -1,0 +1,20 @@
+{% extends "@ToroAdmin/Crud/_grid.html.twig" %}
+
+{% block crud_grid_content %}
+    {{ parent() }}
+
+    <script>
+        $('form[name=post_flagged_update] input[type=checkbox]').change(function (e) {
+            var $el = $(this);
+            var $form = $el.closest('form');
+
+            if (!confirm($el.data('confirm') || 'กรุณายืนยันการดำเนินการนี้')) {
+                $form[0].reset();
+                return;
+            }
+
+            $form[0].submit();
+
+        });
+    </script>
+{% endblock %}

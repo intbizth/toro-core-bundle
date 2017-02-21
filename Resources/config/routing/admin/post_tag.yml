@@ -10,7 +10,7 @@ toro_admin_post_tag:
           all:
             subheader: Manage tag
             templates:
-                form: "@ToroAdmin/PostTag/_form.html.twig"
+                form: "@ToroCore/PostTag/_form.html.twig"
           index:
             icon: ti-book
     type: sylius.resource

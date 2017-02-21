@@ -1,0 +1,16 @@
+{% set taxonId = app.request.get('criteria').taxon.value|default %}
+
+<div class="panel">
+    <div class="list-group bg-trans pad-ver">
+        <p class="pad-hor text-bold">{{ "Taxons" }}</p>
+
+        {% for r in resource.children %}
+            {% set criteria = { criteria: { taxon: { type: 'equal', value: r.id } } } %}
+            {% set highlight = printif('active', r.id == taxonId) %}
+
+            <a href="{{ path('toro_admin_post_index', criteria) }}" class="list-group-item {{ highlight }}">
+                {{ r.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
