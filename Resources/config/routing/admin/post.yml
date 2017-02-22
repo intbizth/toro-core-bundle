@@ -23,7 +23,7 @@ toro_admin_post:
     type: sylius.resource
 
 toro_admin_partial_post_taxon_filter:
-    path: /_partial/posts/filter/taxon
+    path: /_partial/posts/filter/taxon/{code}
     methods: [GET]
     defaults:
         code: "%toro_post_taxon_root%"
@@ -32,4 +32,4 @@ toro_admin_partial_post_taxon_filter:
             template: "@ToroCore/Post/_partial_taxon_filter.html.twig"
             repository:
                 method: findOneByCode
-                arguments: [ "%toro_post_taxon_root%" ]
+                arguments: [ $code ]
