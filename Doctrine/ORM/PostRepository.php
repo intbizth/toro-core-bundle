@@ -35,7 +35,10 @@ class PostRepository extends BasePostRepository
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $locale
+     * @param array|null $criteria The grid criteria ({ taxonCode: { type: 'equal', value: 'posts-07' } })
+     *
+     * @return QueryBuilder
      */
     public function createListQueryBuilder($locale, array $criteria = null)
     {
@@ -46,21 +49,22 @@ class PostRepository extends BasePostRepository
             ->setParameter('locale', $locale)
         ;
 
+        if (array_key_exists('taxonCode', (array) $criteria)) {
+            $queryBuilder->innerJoin('o.taxon', 'taxon');
+        }
+
         if (array_key_exists('tagId', (array) $criteria)) {
             $queryBuilder->innerJoin('translation.tags', 'tag');
-            unset($criteria['tagId']);
         }
 
         if (array_key_exists('flaggedTypeId', (array) $criteria)) {
             $queryBuilder->innerJoin('o.flaggeds', 'flagged');
             $queryBuilder->innerJoin('flagged.type', 'flaggedType');
-            unset($criteria['flaggedTypeId']);
         }
 
         if (array_key_exists('flagged', (array) $criteria)) {
             $queryBuilder->innerJoin('o.flaggeds', 'flagged');
             $queryBuilder->innerJoin('flagged.type', 'flaggedType');
-            unset($criteria['flagged']);
         }
 
         return $queryBuilder;
