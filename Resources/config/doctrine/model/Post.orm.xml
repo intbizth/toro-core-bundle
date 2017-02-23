@@ -19,11 +19,11 @@
             <join-column nullable="false"/>
         </many-to-one>
 
-        <many-to-one field="taxon" target-entity="Sylius\Component\Taxonomy\Model\TaxonInterface">
+        <many-to-one field="taxon" target-entity="Sylius\Component\Taxonomy\Model\TaxonInterface" inversed-by="posts">
             <join-column nullable="true" on-delete="SET NULL"/>
         </many-to-one>
 
-        <one-to-many target-entity="Toro\Bundle\CoreBundle\Model\PostFlaggedInterface" mapped-by="post" field="flaggeds" orphan-removal="true">
+        <one-to-many target-entity="Toro\Bundle\CoreBundle\Model\PostFlaggedInterface" mapped-by="post" field="flaggeds" orphan-removal="true" fetch="EXTRA_LAZY">
             <cascade>
                 <cascade-all/>
             </cascade>

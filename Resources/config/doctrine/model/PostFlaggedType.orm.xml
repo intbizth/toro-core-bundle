@@ -16,7 +16,7 @@
         <field name="enabled" type="boolean"/>
         <field name="singleActive" type="boolean"/>
 
-        <one-to-many target-entity="Toro\Bundle\CoreBundle\Model\PostFlaggedInterface" mapped-by="type" field="items" orphan-removal="true">
+        <one-to-many target-entity="Toro\Bundle\CoreBundle\Model\PostFlaggedInterface" mapped-by="type" field="items" orphan-removal="true" fetch="EXTRA_LAZY">
             <order-by>
                 <order-by-field name="position" direction="ASC"/>
             </order-by>

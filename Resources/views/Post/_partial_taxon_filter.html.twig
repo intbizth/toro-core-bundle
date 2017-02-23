@@ -9,7 +9,7 @@
             {% set highlight = printif('active', r.id == taxonId) %}
 
             <a href="{{ path('toro_admin_post_index', criteria) }}" class="list-group-item {{ highlight }}">
-                <i class="fa fa-angle-right"></i> {{ r.name }}
+                <i class="fa fa-angle-right"></i> {{ r.name }} ({{ r.posts|length|localizednumber }})
             </a>
         {% endfor %}
     </div>

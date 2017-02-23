@@ -12,7 +12,7 @@
             {% set highlight = printif('active', ftype.id == flaggedTypeId) %}
 
             <a href="{{ path('toro_admin_post_index', criteria) }}" class="list-group-item {{ highlight }}">
-                <i class="{{ ftype.id == flaggedTypeId ? iconYes : iconNo }}"></i> {{ ftype.name }}
+                <i class="{{ ftype.id == flaggedTypeId ? iconYes : iconNo }}"></i> {{ ftype.name }} ({{ ftype.items|length }})
             </a>
         {% endfor %}
     </div>

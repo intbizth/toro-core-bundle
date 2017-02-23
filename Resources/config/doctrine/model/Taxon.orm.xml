@@ -7,6 +7,12 @@
 
     <mapped-superclass name="Toro\Bundle\CoreBundle\Model\Taxon" table="toro_taxon">
         <field name="options" type="json_array"/>
+
+        <one-to-many target-entity="Toro\Bundle\CoreBundle\Model\PostInterface" mapped-by="taxon" field="posts" fetch="EXTRA_LAZY">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
     </mapped-superclass>
 
 </doctrine-mapping>
