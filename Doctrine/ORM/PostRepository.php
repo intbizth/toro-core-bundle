@@ -52,9 +52,15 @@ class PostRepository extends BasePostRepository
         }
 
         if (array_key_exists('flaggedTypeId', (array) $criteria)) {
-            $queryBuilder->innerJoin('o.flaggeds', 'flaggeds');
-            $queryBuilder->innerJoin('flaggeds.type', 'flaggedType');
+            $queryBuilder->innerJoin('o.flaggeds', 'flagged');
+            $queryBuilder->innerJoin('flagged.type', 'flaggedType');
             unset($criteria['flaggedTypeId']);
+        }
+
+        if (array_key_exists('flagged', (array) $criteria)) {
+            $queryBuilder->innerJoin('o.flaggeds', 'flagged');
+            $queryBuilder->innerJoin('flagged.type', 'flaggedType');
+            unset($criteria['flagged']);
         }
 
         if (array_key_exists('taxonId', (array) $criteria)) {
