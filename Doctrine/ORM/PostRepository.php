@@ -63,13 +63,6 @@ class PostRepository extends BasePostRepository
             unset($criteria['flagged']);
         }
 
-        if (array_key_exists('taxonId', (array) $criteria)) {
-            $criteria['taxon'] = $criteria['taxonId'];
-            unset($criteria['taxonId']);
-        }
-
-        $this->applyCriteria($queryBuilder, (array) $criteria);
-
         return $queryBuilder;
     }
 }
