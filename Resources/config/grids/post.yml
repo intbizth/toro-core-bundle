@@ -20,7 +20,7 @@ sylius_grid:
                     options:
                         default: true
                         fields: [translation.title, translation.description]
-                state:
+                published:
                     type: string
                     label: Search state
                 taxon:
