@@ -3,7 +3,6 @@ imports:
     - { resource: "@ToroCoreBundle/Resources/config/app/sylius_customer.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/app/sylius_user.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/app/sylius_taxonomy.yml" }
-    - { resource: "@ToroCoreBundle/Resources/config/app/sylius_addressing.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/app/sylius_locale.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/app/sylius_channel.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/app/toro_cms.yml" }
