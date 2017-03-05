@@ -48,4 +48,13 @@ class Taxon extends BaseTaxon
     {
         $this->options = $options;
     }
+
+    /**
+     * {@inheritdoc}
+     * {@internal}
+     */
+    public function createTranslation()
+    {
+        return new TaxonTranslation();
+    }
 }
