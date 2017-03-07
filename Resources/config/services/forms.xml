@@ -14,6 +14,10 @@
             <tag name="form.type_extension" extended-type="Toro\Bundle\CmsBundle\Form\Type\PostType" />
         </service>
 
+        <service id="toro.form.extension.type.taxon_choice_attr" class="Toro\Bundle\CoreBundle\Form\Extension\TaxonChoiceTypeExtension">
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonChoiceType" />
+        </service>
+
         <service id="toro.form.type.web_user" class="Toro\Bundle\CoreBundle\Form\Type\User\WebUserType">
             <argument>%sylius.model.web_user.class%</argument>
             <argument type="collection"><argument>sylius</argument></argument>

@@ -5,6 +5,7 @@ namespace Toro\Bundle\CoreBundle\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 class Taxon extends BaseTaxon
 {
@@ -56,5 +57,34 @@ class Taxon extends BaseTaxon
     public function createTranslation()
     {
         return new TaxonTranslation();
+    }
+
+    /**
+     * @param GeoNameInterface $geoName
+     * @param array $names
+     */
+    private static function __getNames(TaxonInterface $taxon, array &$names)
+    {
+        if ($taxon->isRoot()) {
+            return;
+        }
+
+        $names[] = $taxon->getName();
+
+        if ($taxon->getParent()) {
+            self::__getNames($taxon->getParent(), $names);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPathName()
+    {
+        $names = [];
+
+        self::__getNames($this, $names);
+
+        return implode(', ', array_reverse($names));
     }
 }
