@@ -20,7 +20,9 @@ final class TaxonChoiceTypeExtension extends AbstractTypeExtension
                     return [
                         // data option using for selectize
                         'data-data' => json_encode([
+                            'code' => $taxon->getCode(),
                             'name' => $taxon->getName(),
+                            'slug' => $taxon->getSlug(),
                             'path_name' => $taxon->getPathName(),
                         ])
                     ];
