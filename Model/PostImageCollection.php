@@ -13,7 +13,7 @@ class PostImageCollection extends ImageCollection implements PostImageCollection
     public function getMediaMetaReferences()
     {
         return array(
-            new MediaReference('/posts/'.$this->collectionOwner->getId(), 'imageId', $this->imageId, $this->image),
+            new MediaReference('/post-'.$this->collectionOwner->getId(), 'imageId', $this->imageId, $this->image),
         );
     }
 
