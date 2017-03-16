@@ -3,7 +3,7 @@
 {% set flaggedTypes = post.flaggedTypes %}
 
 {{ form_start(form, { method: 'PATCH', action: path('toro_admin_cms_post_update_flags', { id: post.id }) }) }}
-<div class="btn-group btn-group-sm" role="group">
+<div class="btn-group btn-group-sm" role="group" style="width:80px;">
     {% for field in form.flaggedTypes %}
         {% set flaggedType = choices[field.vars.name].data %}
         {% set config = flaggedType.config %}

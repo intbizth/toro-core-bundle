@@ -67,7 +67,6 @@
 
         <service id="toro.form.post_flagged_update" class="Toro\Bundle\CoreBundle\Form\Type\PostFlaggedUpdateType">
             <argument>%toro.model.post.class%</argument>
-            <argument type="collection"><argument>toro</argument></argument>
             <call method="setFlaggedProcessor">
                 <argument type="service" id="toro.processor.post_flagged_processor"/>
             </call>
