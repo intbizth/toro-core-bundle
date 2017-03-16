@@ -2,10 +2,10 @@
 
 namespace Toro\Bundle\CoreBundle\Form\Extension;
 
-use Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonChoiceType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
 use Toro\Bundle\CmsBundle\Form\Type\PostType;
+use Toro\Bundle\CmsBundle\Form\Type\TaxonChoiceType;
 
 final class PostTypeExtension extends AbstractTypeExtension
 {
