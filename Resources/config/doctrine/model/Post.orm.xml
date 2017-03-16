@@ -16,7 +16,7 @@
         </many-to-one>
 
         <many-to-one field="channel" target-entity="Sylius\Component\Channel\Model\ChannelInterface">
-            <join-column nullable="false"/>
+            <join-column nullable="true"/>
         </many-to-one>
 
         <many-to-one field="taxon" target-entity="Sylius\Component\Taxonomy\Model\TaxonInterface" inversed-by="posts">

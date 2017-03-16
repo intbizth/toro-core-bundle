@@ -38,6 +38,14 @@ class Post extends BasePost implements PostInterface
     /**
      * {@inheritdoc}
      */
+    public function createTranslation()
+    {
+        return new PostTranslation();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public static function getImageCollectionTargetEntity()
     {
         return PostImageCollectionInterface::class;
