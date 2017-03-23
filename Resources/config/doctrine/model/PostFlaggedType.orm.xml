@@ -6,16 +6,6 @@
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <mapped-superclass name="Toro\Bundle\CoreBundle\Model\PostFlaggedType" table="toro_cms_post_flagged_type">
-        <id name="id" column="id" type="integer">
-            <generator strategy="AUTO"/>
-        </id>
-
-        <field name="code" type="string" unique="true"/>
-        <field name="name" type="string" unique="true"/>
-        <field name="config" type="json_array"/>
-        <field name="enabled" type="boolean"/>
-        <field name="singleActive" type="boolean"/>
-
         <one-to-many target-entity="Toro\Bundle\CoreBundle\Model\PostFlaggedInterface" mapped-by="type" field="items" orphan-removal="true" fetch="EXTRA_LAZY">
             <order-by>
                 <order-by-field name="position" direction="ASC"/>

@@ -3,7 +3,7 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="toro.processor.post_flagged_processor" class="Toro\Bundle\CoreBundle\Processor\FlaggedProcessor">
+        <service id="toro.processor.post_flagged_processor" class="Toro\Bundle\CmsBundle\Processor\FlaggedProcessor">
             <argument type="service" id="toro.repository.post"/>
             <argument type="service" id="toro.repository.post_flagged_type"/>
             <argument type="service" id="toro.repository.post_flagged"/>

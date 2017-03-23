@@ -7,20 +7,6 @@
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <mapped-superclass name="Toro\Bundle\CoreBundle\Model\PostFlagged" table="toro_cms_post_flagged">
-        <id name="id" column="id" type="integer">
-            <generator strategy="AUTO"/>
-        </id>
-
-        <field name="position" type="integer"/>
-
-        <field name="createdAt" type="datetime">
-            <gedmo:timestampable on="create"/>
-        </field>
-
-        <field name="updatedAt" type="datetime" nullable="true">
-            <gedmo:timestampable on="update"/>
-        </field>
-
         <many-to-one target-entity="Toro\Bundle\CoreBundle\Model\PostFlaggedTypeInterface" field="type" inversed-by="items">
             <join-column nullable="false"/>
         </many-to-one>

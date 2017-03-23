@@ -2,36 +2,10 @@
 
 namespace Toro\Bundle\CoreBundle\Model;
 
-use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\TimestampableInterface;
+use Toro\Bundle\CmsBundle\Model\FlaggedInterface;
 
-interface PostFlaggedInterface extends ResourceInterface, TimestampableInterface
+interface PostFlaggedInterface extends FlaggedInterface
 {
-    /**
-     * @return int
-     */
-    public function getId();
-
-    /**
-     * @return PostFlaggedTypeInterface
-     */
-    public function getType();
-
-    /**
-     * @param PostFlaggedTypeInterface $type
-     */
-    public function setType(PostFlaggedTypeInterface $type = null);
-
-    /**
-     * @return int
-     */
-    public function getPosition();
-
-    /**
-     * @param int $position
-     */
-    public function setPosition($position);
-
     /**
      * @return PostInterface
      */
