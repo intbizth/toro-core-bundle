@@ -6,19 +6,19 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Toro\Bundle\CoreBundle\Processor\FlaggedProcessor;
+use Toro\Bundle\CmsBundle\Processor\FlaggedProcessorInterface;
 
 class PostFlaggedUpdateType extends AbstractResourceType
 {
     /**
-     * @var FlaggedProcessor
+     * @var FlaggedProcessorInterface
      */
     private $flaggedProcessor;
 
     /**
-     * @param FlaggedProcessor $flaggedProcessor
+     * @param FlaggedProcessorInterface $flaggedProcessor
      */
-    public function setFlaggedProcessor(FlaggedProcessor $flaggedProcessor)
+    public function setFlaggedProcessor(FlaggedProcessorInterface $flaggedProcessor)
     {
         $this->flaggedProcessor = $flaggedProcessor;
     }
