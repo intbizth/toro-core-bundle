@@ -1,8 +1,11 @@
-toro_admin_post:
+toro_admin_core_post:
     resource: "@ToroCoreBundle/Resources/config/routing/admin/post.yml"
 
-toro_admin_post_tag:
+toro_admin_core_post_tag:
     resource: "@ToroCoreBundle/Resources/config/routing/admin/post_tag.yml"
 
-toro_admin_post_flagged_type:
+toro_admin_core_post_flagged_type:
     resource: "@ToroCoreBundle/Resources/config/routing/admin/post_flagged_type.yml"
+
+toro_admin_core_customer:
+    resource: "@ToroCoreBundle/Resources/config/routing/admin/customer.yml"

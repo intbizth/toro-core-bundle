@@ -11,3 +11,4 @@ imports:
     - { resource: "@ToroCoreBundle/Resources/config/grids/post.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/grids/post_tag.yml" }
     - { resource: "@ToroCoreBundle/Resources/config/grids/post_flagged_type.yml" }
+    - { resource: "@ToroCoreBundle/Resources/config/grids/customer.yml" }

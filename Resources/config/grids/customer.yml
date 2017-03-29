@@ -1,0 +1,28 @@
+sylius_grid:
+    grids:
+        toro_grid_customer_filter:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%sylius.model.customer.class%"
+            sorting:
+                firstName: desc
+                lastName: desc
+            filters:
+                keyword:
+                    type: string
+                    options:
+                        fields:
+                            - firstName
+                            - lastName
+                            - phoneNumber
+                            - email
+            fields:
+                firstName:
+                    type: string
+                    label: "firstName"
+                    sortable: ~
+                lastName:
+                    type: string
+                    label: "lastName"
+                    sortable: ~

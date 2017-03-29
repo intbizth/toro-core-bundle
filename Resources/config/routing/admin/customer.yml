@@ -1,0 +1,10 @@
+toro_admin_customer_filter:
+    path: /customer/filter
+    methods: [GET]
+    defaults:
+        _format: json
+        _controller: sylius.controller.customer:indexAction
+        _sylius:
+            grid: toro_grid_customer_filter
+            serialization_version: 1
+            serialization_groups: [Default, Autocomplete]

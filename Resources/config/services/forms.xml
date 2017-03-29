@@ -72,6 +72,11 @@
             </call>
             <tag name="form.type"/>
         </service>
+
+        <service id="toro.form.customer_choice" class="Toro\Bundle\CoreBundle\Form\Type\CustomerChoiceType">
+            <argument type="service" id="sylius.repository.customer"/>
+            <tag name="form.type"/>
+        </service>
     </services>
 
 </container>
