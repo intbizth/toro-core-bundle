@@ -9,6 +9,6 @@ sylius_user:
         oauth:
             user:
                 classes:
-                    model: Sylius\Component\User\Model\UserOAuth
+                    model: Toro\Bundle\CoreBundle\Model\WebUserOAuth
                     interface: Sylius\Component\User\Model\UserOAuthInterface
                     controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
