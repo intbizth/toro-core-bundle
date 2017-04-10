@@ -3,6 +3,7 @@
 namespace Toro\Bundle\CoreBundle\Context;
 
 use Sylius\Component\User\Model\UserInterface;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
@@ -54,5 +55,14 @@ final class UserContext implements UserContextInterface
         }
 
         return $user->isVerified();
+    }
+
+    public function __call($name, $arguments)
+    {
+        if (!$user = $this->getUser()) {
+            return;
+        }
+
+        return PropertyAccess::createPropertyAccessor()->getValue($user, $name);
     }
 }
