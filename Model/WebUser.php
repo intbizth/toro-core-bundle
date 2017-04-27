@@ -2,10 +2,9 @@
 
 namespace Toro\Bundle\CoreBundle\Model;
 
-use Sylius\Component\User\Model\User as BaseUser;
 use Sylius\Component\Customer\Model\CustomerInterface as BaseCustomerInterface;
 
-class WebUser extends BaseUser implements WebUserInterface
+class WebUser extends User implements WebUserInterface
 {
     /**
      * @var CustomerInterface
