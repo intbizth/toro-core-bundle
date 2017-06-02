@@ -124,6 +124,8 @@ class UserProvider extends BaseUserProvider implements AccountConnectorInterface
         // set default values taken from OAuth sign-in provider account
         if (null !== $email = $response->getEmail()) {
             $customer->setEmail($email);
+        } else {
+            throw new NotFoundAnEmailException();
         }
 
         if (null !== $realName = $response->getRealName()) {
