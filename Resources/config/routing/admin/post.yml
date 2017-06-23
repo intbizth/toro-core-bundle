@@ -13,7 +13,7 @@ toro_admin_post:
     resource: |
         alias: toro.post
         section: admin
-        templates: ToroCoreBundle:Post/Crud
+        templates: ToroCoreBundle:PostCrud
         except: ['show']
         redirect: update
         grid: toro_admin_core_post
