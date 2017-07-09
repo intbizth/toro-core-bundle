@@ -52,6 +52,10 @@ final class DefaultUsernameORMListener
                 continue;
             }
 
+            if ($user->getUsername() && $user->getUsernameCanonical()) {
+                continue;
+            }
+
             if ($customer->getEmail() === $user->getUsername() && $customer->getEmailCanonical() === $user->getUsernameCanonical()) {
                 continue;
             }
