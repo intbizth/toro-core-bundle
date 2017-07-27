@@ -14,14 +14,14 @@
     "require": {
         "php": "^7.1",
 
-        "toro/admin-bundle": "v1.0.0-beta.3",
-        "toro/api-bundle": "v1.0.0-beta.3",
-        "toro/cms-bundle": "v1.0.0-beta.3",
-        "toro/media-bundle": "v1.0.0-beta.3",
-        "toro/fixture-bundle": "v1.0.0-beta.3",
-        "toro/server-bundle": "v1.0.0-beta.3",
-        "toro/tagging-bundle": "v1.0.0-beta.3",
-        "toro/widget-bundle": "v1.0.0-beta.3"
+        "toro/admin-bundle": "1.0.x-dev",
+        "toro/api-bundle": "1.0.x-dev",
+        "toro/cms-bundle": "1.0.x-dev",
+        "toro/media-bundle": "1.0.x-dev",
+        "toro/fixture-bundle": "1.0.x-dev",
+        "toro/server-bundle": "1.0.x-dev",
+        "toro/tagging-bundle": "1.0.x-dev",
+        "toro/widget-bundle": "1.0.x-dev"
     },
     "require-dev": {
         "doctrine/orm": "^2.5",
