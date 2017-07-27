@@ -14,6 +14,8 @@
     "require": {
         "php": "^7.1",
 
+        "ideasbucket/common": "^1.1",
+
         "toro/admin-bundle": "1.0.x-dev",
         "toro/api-bundle": "1.0.x-dev",
         "toro/cms-bundle": "1.0.x-dev",
