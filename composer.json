@@ -18,7 +18,7 @@
 
         "toro/admin-bundle": "1.0.x-dev",
         "toro/api-bundle": "1.0.x-dev",
-        "toro/cms-bundle": "1.0.x-dev",
+        "toro/cms-bundle": "dev-beta2a",
         "toro/media-bundle": "1.0.x-dev",
         "toro/fixture-bundle": "1.0.x-dev",
         "toro/server-bundle": "1.0.x-dev",
