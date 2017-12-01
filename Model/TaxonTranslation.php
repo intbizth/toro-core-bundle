@@ -9,7 +9,7 @@ class TaxonTranslation extends BaseTaxonTranslation
     /**
      * {@inheritdoc}
      */
-    public function setName($name)
+    public function setName(?string $name): void
     {
         $this->name = $name;
 
@@ -21,7 +21,7 @@ class TaxonTranslation extends BaseTaxonTranslation
     /**
      * {@inheritdoc}
      */
-    public function setSlug($slug = null)
+    public function setSlug(?string $slug = null): void
     {
         $this->slug = preg_replace('/\s+/', '-', strtolower(trim($slug)));
     }

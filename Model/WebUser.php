@@ -4,6 +4,7 @@ namespace Toro\Bundle\CoreBundle\Model;
 
 use Sylius\Component\Customer\Model\CustomerInterface as BaseCustomerInterface;
 
+
 class WebUser extends User implements WebUserInterface
 {
     /**
@@ -14,7 +15,7 @@ class WebUser extends User implements WebUserInterface
     /**
      * {@inheritdoc}
      */
-    public function getCustomer()
+    public function getCustomer(): BaseCustomerInterface
     {
         return $this->customer;
     }
@@ -22,7 +23,7 @@ class WebUser extends User implements WebUserInterface
     /**
      * {@inheritdoc}
      */
-    public function setCustomer(BaseCustomerInterface $customer = null)
+    public function setCustomer(BaseCustomerInterface $customer = null): void
     {
         if ($this->customer !== $customer) {
             $this->customer = $customer;
@@ -33,7 +34,7 @@ class WebUser extends User implements WebUserInterface
     /**
      * {@inheritdoc}
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->customer->getEmail();
     }
@@ -41,7 +42,7 @@ class WebUser extends User implements WebUserInterface
     /**
      * {@inheritdoc}
      */
-    public function setEmail($email)
+    public function setEmail(?string $email): void
     {
         $this->customer->setEmail($email);
     }
@@ -49,7 +50,7 @@ class WebUser extends User implements WebUserInterface
     /**
      * {@inheritdoc}
      */
-    public function getEmailCanonical()
+    public function getEmailCanonical(): ?string
     {
         return $this->customer->getEmailCanonical();
     }
@@ -57,7 +58,7 @@ class WebUser extends User implements WebUserInterface
     /**
      * {@inheritdoc}
      */
-    public function setEmailCanonical($emailCanonical)
+    public function setEmailCanonical(?string $emailCanonical): void
     {
         $this->customer->setEmailCanonical($emailCanonical);
     }

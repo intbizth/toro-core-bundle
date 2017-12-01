@@ -2,6 +2,7 @@
 
 namespace Toro\Bundle\CoreBundle\Model;
 
+use Sylius\Component\Resource\Model\TranslationInterface;
 use Toro\Bundle\MediaBundle\Meta\MediaReference;
 use Toro\Bundle\MediaBundle\Model\ImageCollection;
 
@@ -20,7 +21,7 @@ class PostImageCollection extends ImageCollection implements PostImageCollection
     /**
      * {@inheritdoc}
      */
-    protected function createTranslation()
+    protected function createTranslation(): TranslationInterface
     {
         return new PostImageCollectionTranslation();
     }

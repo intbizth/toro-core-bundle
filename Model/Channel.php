@@ -72,7 +72,7 @@ class Channel extends BaseChannel implements ChannelInterface
     /**
      * {@inheritdoc}
      */
-    public function getLocales()
+    public function getLocales(): Collection
     {
         return $this->locales;
     }
@@ -88,7 +88,7 @@ class Channel extends BaseChannel implements ChannelInterface
     /**
      * {@inheritdoc}
      */
-    public function addLocale(LocaleInterface $locale)
+    public function addLocale(LocaleInterface $locale): void
     {
         if (!$this->hasLocale($locale)) {
             $this->locales->add($locale);
@@ -98,7 +98,7 @@ class Channel extends BaseChannel implements ChannelInterface
     /**
      * {@inheritdoc}
      */
-    public function removeLocale(LocaleInterface $locale)
+    public function removeLocale(LocaleInterface $locale): void
     {
         if ($this->hasLocale($locale)) {
             $this->locales->removeElement($locale);
@@ -108,7 +108,7 @@ class Channel extends BaseChannel implements ChannelInterface
     /**
      * {@inheritdoc}
      */
-    public function hasLocale(LocaleInterface $locale)
+    public function hasLocale(LocaleInterface $locale): bool
     {
         return $this->locales->contains($locale);
     }
