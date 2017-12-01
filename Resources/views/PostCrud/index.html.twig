@@ -15,14 +15,14 @@
                     {% endif %}
 
                     {% set published = app.request.get('criteria').published|default([]).value|default %}
-                    {% set highlight = printif('active', published is sameas('1')) %}
+                    {% set highlight = printif('active', published is same as('1')) %}
                     {% set criteria = { criteria: { published: { type: 'equal', value: 1 } } } %}
 
                     <a href="{{ path('toro_admin_post_index', criteria) }}" class="list-group-item {{ highlight }}">
                         <i class="fa fa-circle text-success"></i> {{ "Published" }}
                     </a>
 
-                    {% set highlight = printif('active', published is sameas('0')) %}
+                    {% set highlight = printif('active', published is same as('0')) %}
                     {% set criteria = { criteria: { published: { type: 'equal', value: 0 } } } %}
 
                     <a href="{{ path('toro_admin_post_index', criteria) }}" class="list-group-item {{ highlight }}">

@@ -3,6 +3,7 @@
 namespace Toro\Bundle\CoreBundle\Doctrine\ORM;
 
 use Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository as BaseUserRepository;
+use Sylius\Component\User\Model\UserInterface;
 use Sylius\Component\User\Repository\UserRepositoryInterface;
 
 class UserRepository extends BaseUserRepository implements UserRepositoryInterface
@@ -10,7 +11,7 @@ class UserRepository extends BaseUserRepository implements UserRepositoryInterfa
     /**
      * {@inheritdoc}
      */
-    public function findOneByEmail($email)
+    public function findOneByEmail(string $email): ?UserInterface
     {
         $queryBuilder = $this->createQueryBuilder('o');
 
@@ -23,6 +24,6 @@ class UserRepository extends BaseUserRepository implements UserRepositoryInterfa
         return $queryBuilder
             ->getQuery()
             ->getOneOrNullResult()
-        ;
+            ;
     }
 }

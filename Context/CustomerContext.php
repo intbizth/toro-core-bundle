@@ -6,7 +6,7 @@ use Sylius\Component\Customer\Context\CustomerContextInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
-use Toro\Bundle\CoreBundle\Model\CustomerInterface;
+use Sylius\Component\Customer\Model\CustomerInterface;
 use Toro\Bundle\CoreBundle\Model\WebUserInterface;
 
 final class CustomerContext implements CustomerContextInterface
@@ -36,7 +36,7 @@ final class CustomerContext implements CustomerContextInterface
      *
      * @return CustomerInterface|null
      */
-    public function getCustomer()
+    public function getCustomer(): ?CustomerInterface
     {
         if (null === $token = $this->tokenStorage->getToken()) {
             return null;
