@@ -24,7 +24,7 @@ final class PasswordUpdaterListener extends BasePasswordUpdaterListener
         }
 
         if (null !== $user = $customer->getUser()) {
-            $this->updateUserPassword($user);
+            $this->updatePassword($user);
         }
     }
 }
