@@ -6,6 +6,7 @@ toro_admin_post_tag:
         except: ['show']
         redirect: index
         grid: toro_admin_post_tag
+        permission: true
         vars:
           all:
             subheader: Manage tag
