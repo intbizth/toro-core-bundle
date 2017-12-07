@@ -4,6 +4,7 @@ toro_admin_cms_post_update_flags:
     defaults:
         _controller: toro.controller.post:updateAction
         _sylius:
+            permission: true
             redirect: referer
             template: "@ToroCore/Post/_form_update_flags.html.twig"
             form:
@@ -16,6 +17,7 @@ toro_admin_post:
         templates: ToroCoreBundle:PostCrud
         except: ['show']
         redirect: update
+        permission: true
         grid: toro_admin_core_post
         vars:
           index:
@@ -29,6 +31,7 @@ toro_admin_partial_post_taxon_filter:
         code: "%toro_post_taxon_root%"
         _controller: sylius.controller.taxon:showAction
         _sylius:
+            permission: true
             template: "@ToroCore/Post/_partial_taxon_filter.html.twig"
             repository:
                 method: findOneByCode
