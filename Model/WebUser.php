@@ -3,7 +3,7 @@
 namespace Toro\Bundle\CoreBundle\Model;
 
 use Sylius\Component\Customer\Model\CustomerInterface as BaseCustomerInterface;
-
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class WebUser extends User implements WebUserInterface
 {
@@ -71,5 +71,34 @@ class WebUser extends User implements WebUserInterface
         if (null !== $customer) {
             $customer->setUser($this);
         }
+    }
+    
+     /**
+     * @return int
+     */
+    public function getIdentifier(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param UserInterface $user
+     * @return bool
+     */
+    public function isEqualTo(UserInterface $user)
+    {
+        if ($user instanceof WebUserInterface) {
+            // Check that the roles are the same, in any order
+            $isEqual = count($this->getRoles()) == count($user->getRoles());
+            if ($isEqual) {
+                foreach($this->getRoles() as $role) {
+                    $isEqual = $isEqual && in_array($role, $user->getRoles());
+                }
+            }
+
+            return $isEqual;
+        }
+
+        return false;
     }
 }
