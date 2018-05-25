@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
-use Sylius\Component\Taxonomy\Model\TaxonTranslationInterface;
+use Sylius\Component\Taxonomy\Model\TaxonTranslation;
 
 class Taxon extends BaseTaxon
 {
@@ -55,7 +55,7 @@ class Taxon extends BaseTaxon
      * {@inheritdoc}
      * {@internal}
      */
-    public function createTranslation(): TaxonTranslationInterface
+    public function createTranslation(): TaxonTranslation
     {
         return new TaxonTranslation();
     }
